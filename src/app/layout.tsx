@@ -1,42 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata, Viewport } from "next";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const sans = Archivo({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans" });
+const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono" });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export interface RootLayoutProps {
-  children: React.ReactNode;
-}
+const description =
+  "Front-end developer since 2018 — React, Next.js and TypeScript for proptech, fintech, banking and telecom; now Ember.js and Ruby at Salsify.";
 
 export const metadata: Metadata = {
-  title: "João Barroso - Portfolio",
-  description: "Web Portfolio",
+  metadataBase: new URL("https://joaobbarroso.github.io"),
+  title: "João Barroso — Front-end Developer",
+  description,
+  openGraph: { title: "João Barroso — Front-end Developer", description, images: ["/profile.jpg"] },
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export const viewport: Viewport = { themeColor: "#0a0a0a", colorScheme: "dark" };
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
