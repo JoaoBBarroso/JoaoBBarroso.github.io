@@ -1,4 +1,4 @@
-export type LinkRow = { k: string; v: string; note: string; href: string };
+export type LinkRow = { k: string; v: string; note: string; href?: string };
 export type InfoRow = { k: string; v: string; note: string; stack?: string };
 
 export type Panel = {
@@ -35,20 +35,17 @@ export const PANELS: Panel[] = [
       {
         k: "01",
         v: "Salsify",
-        note: "Product experience management for brands and retailers. Building across the Ember.js front end and the Ruby that feeds it.",
-        href: "https://www.salsify.com",
+        note: "Product experience management for brands and retailers. Building across the Ember.js front end and the Ruby behind it, and bringing AI tools and capabilities to customers.",
       },
       {
         k: "02",
         v: "Boligmappa",
         note: "First front-end hire. A documentation platform used by craftsmen and homeowners across Norway, plus its Storybook component library.",
-        href: "https://www.boligmappa.no",
       },
       {
         k: "03",
         v: "iCapital",
         note: "An alternative-investment marketplace, built with a team of ten-plus developers — dense financial interfaces where a wrong number is a real problem.",
-        href: "https://www.icapital.com",
       },
     ],
   },
@@ -90,7 +87,7 @@ export const PANELS: Panel[] = [
       {
         k: "2025 — NOW",
         v: "Salsify",
-        note: "Since September 2025 · product experience management",
+        note: "Product experience management · bringing AI tools to customers",
         stack: "Ember.js · Ruby",
       },
       {

@@ -106,6 +106,17 @@ export default function Home() {
               {p.links && (
                 <ul className="list">
                   {p.links.map((row) => {
+                    if (!row.href) {
+                      return (
+                        <li key={row.k} className="link-row">
+                          <span className="k">{row.k}</span>
+                          <span className="stack-col">
+                            <span className="v">{row.v}</span>
+                            <span className="note">{row.note}</span>
+                          </span>
+                        </li>
+                      );
+                    }
                     const external = row.href.startsWith("http");
                     const file = row.href.endsWith(".pdf");
                     return (

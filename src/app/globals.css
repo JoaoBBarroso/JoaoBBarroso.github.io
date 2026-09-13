@@ -336,7 +336,7 @@ a.label:hover {
     background 0.3s ease,
     transform 0.18s ease;
 }
-.link-row:hover {
+a.link-row:hover {
   background: rgba(244, 241, 234, 0.05);
 }
 .link-row .stack-col {
